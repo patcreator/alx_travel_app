@@ -120,6 +120,16 @@ REST_FRAMEWORK = {
     ],
 }
 
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_BROKER_URL = env(
+    'CELERY_BROKER_URL',
+    default='amqp://guest:guest@localhost:5672//'
+)
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
